@@ -1,0 +1,27 @@
+/* ============================================
+   Layout — Floating 3D Glass Design
+   ============================================ */
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+}
+
+.main-content {
+  flex: 1;
+  /* Padding to avoid floating pills: 
+     Top: 100px (navbar + space)
+     Left: 100px (sidebar pill + space)
+     Right/Bottom: normal space */
+  padding: 100px var(--space-4) var(--space-8) 100px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1; /* Above animated background */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 80px var(--space-4) 100px var(--space-4); /* Space for bottom floating sidebar */
+  }
+}

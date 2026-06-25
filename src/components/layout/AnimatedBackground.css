@@ -1,0 +1,111 @@
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: transparent;
+  perspective: 1000px;
+}
+
+.animated-bg-noise {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.animated-bg-shape {
+  position: absolute;
+  filter: blur(100px);
+  opacity: 0.7;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Specific shapes for Dark Theme */
+[data-theme='dark'] .shape-1 {
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+  top: -20%;
+  left: -10%;
+  animation: floatOrb 25s reverse infinite;
+  background-color: #004e92;
+}
+[data-theme='dark'] .shape-2 {
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, #000428, #004e92);
+  bottom: -10%;
+  right: -10%;
+  animation: floatOrb 30s infinite;
+  background-color: #000428;
+}
+[data-theme='dark'] .shape-3 {
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, #1a2a6c, #b21f1f, #fdbb2d);
+  top: 40%;
+  left: 60%;
+  animation: floatOrb 20s infinite alternate;
+  background-color: #1a2a6c;
+  opacity: 0.4;
+}
+[data-theme='dark'] .shape-4 {
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, #093028, #237a57);
+  top: 50%;
+  left: 20%;
+  animation: floatOrb 22s infinite alternate-reverse;
+  background-color: #237a57;
+  opacity: 0.3;
+}
+
+/* Specific shapes for Light Theme (Purpleish) */
+[data-theme='light'] .animated-bg-shape {
+  display: none; /* Hide orbs in light mode so the interior photo shows clearly */
+}
+[data-theme='light'] .shape-1 {
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, #e0c3fc, #8ec5fc);
+  top: -20%;
+  left: -10%;
+  animation: floatOrb 25s reverse infinite;
+}
+[data-theme='light'] .shape-2 {
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, #ffecd2, #fcb69f);
+  bottom: -20%;
+  right: -10%;
+  animation: floatOrb 30s infinite;
+}
+[data-theme='light'] .shape-3 {
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, #fbc2eb, #a6c1ee);
+  top: 30%;
+  left: 50%;
+  animation: floatOrb 20s infinite alternate;
+}
+[data-theme='light'] .shape-4 {
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, #fff1eb, #ace0f9);
+  bottom: 10%;
+  left: 10%;
+  animation: floatOrb 28s infinite alternate-reverse;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(15vw, -10vh) scale(1.1) rotate(120deg); }
+  66% { transform: translate(-10vw, 15vh) scale(0.9) rotate(240deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+}

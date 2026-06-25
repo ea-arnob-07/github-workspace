@@ -1,0 +1,149 @@
+.repo-header {
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+}
+.repo-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-5);
+}
+.repo-header-title {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+.repo-icon-lg { font-size: 2rem; }
+.repo-header-title h1 {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  word-break: break-word;
+}
+.repo-owner-link {
+  color: var(--color-text-link);
+  font-weight: 400;
+}
+.repo-owner-link:hover { text-decoration: underline; }
+.repo-separator {
+  color: var(--color-text-tertiary);
+  margin: 0 2px;
+  font-weight: 300;
+}
+.repo-desc {
+  margin-top: var(--space-2);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  max-width: 700px;
+}
+.repo-stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border-glass);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+.repo-stat-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.repo-stat-item strong {
+  color: var(--color-text-primary);
+}
+.repo-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+.repo-tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-4);
+}
+.overview-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.overview-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.contributor-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  text-decoration: none;
+  color: inherit;
+}
+.contributor-card:hover { text-decoration: none; }
+.issue-item {
+  padding: var(--space-4);
+}
+.issue-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+.issue-title {
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+.issue-meta {
+  color: var(--color-text-tertiary);
+}
+.issue-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+.branch-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+}
+.branch-name {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+.commit-item {
+  padding: var(--space-4);
+}
+.commit-msg {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+.commit-meta {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  color: var(--color-text-tertiary);
+}
+.commit-sha {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  background: var(--color-accent-muted);
+  color: var(--color-accent);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+}
+@media (max-width: 768px) {
+  .repo-header-title { flex-direction: column; }
+  .repo-stats-bar { gap: var(--space-4); }
+}

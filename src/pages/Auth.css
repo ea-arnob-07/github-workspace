@@ -1,0 +1,411 @@
+/* ============================================
+   Auth Pages — Premium 3D Glass Design
+   ============================================ */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  position: relative;
+  overflow: hidden;
+  background: #050505;
+}
+
+/* Ambient glow in background to reflect off the icy glass */
+.auth-page::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(0, 210, 106, 0.18) 0%, transparent 60%);
+  z-index: 0;
+}
+
+.auth-page::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(0, 195, 255, 0.15) 0%, transparent 60%);
+  z-index: 0;
+}
+
+/* ---- Auth Container — 3D Glass Card ---- */
+.auth-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 900px;
+
+  /* Icy Transparent Glass */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(40px) saturate(150%);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-left-color: rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  padding: 0;
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.8),
+    inset 0 1px 3px rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  animation: authCardEnter 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* ---- Left Panel (Text) ---- */
+.auth-left-panel {
+  flex: 1.2;
+  position: relative;
+  background: transparent;
+  display: flex;
+  align-items: flex-end;
+  padding: 60px 40px;
+}
+
+.auth-left-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.auth-left-content h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #00d26a;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.auth-left-content p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 24px;
+  max-width: 90%;
+  line-height: 1.5;
+}
+
+.auth-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.auth-features span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  color: #000;
+  border-radius: 50%;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+/* ---- Right Panel (Form) ---- */
+.auth-right-panel {
+  flex: 1;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  /* Darker overlay for contrast */
+  position: relative;
+  z-index: 2;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.maya-logo {
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.bank-badge {
+  background: #fff;
+  color: #000;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.welcome-text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.auth-header h1 {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 32px;
+  color: #fff;
+}
+
+/* Form Overrides */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-form label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 4px;
+}
+
+.auth-form label .asterisk {
+  color: #ef4444;
+}
+
+.auth-form input {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #fff !important;
+  padding: 14px 16px !important;
+  border-radius: 12px !important;
+  font-size: 15px !important;
+  width: 100%;
+  transition: all 0.2s ease !important;
+}
+
+.auth-form input:focus {
+  border-color: #00d26a !important;
+  box-shadow: 0 0 0 1px #00d26a, inset 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+  outline: none;
+}
+
+.auth-submit.btn-primary {
+  background: #00d26a !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  border: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 16px !important;
+  margin-top: 8px;
+  font-size: 15px !important;
+  box-shadow: 0 4px 12px rgba(0, 210, 106, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+
+.auth-submit.btn-primary:hover {
+  background: #00e676 !important;
+  transform: translateY(-1px);
+}
+
+.btn-passkey {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.btn-passkey:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes authCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(40px) rotateX(6deg) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+  }
+}
+
+/* Alert */
+.auth-alert {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-5);
+  animation: fadeIn var(--transition-fast) ease;
+  backdrop-filter: blur(8px);
+}
+
+.auth-alert-error {
+  background: var(--color-danger-muted);
+  color: var(--color-danger);
+  border: 1px solid rgba(248, 81, 73, 0.15);
+}
+
+/* Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: var(--space-4);
+  font-size: var(--text-base);
+  padding: var(--space-4) var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect on primary button */
+.auth-submit::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 70%);
+  animation: buttonShimmer 3s ease-in-out infinite;
+}
+
+@keyframes buttonShimmer {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+/* Loading button */
+.btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+/* Footer */
+.auth-footer {
+  text-align: center;
+  margin-top: var(--space-6);
+}
+
+.auth-footer p {
+  font-size: var(--text-sm);
+}
+
+.auth-footer a {
+  font-weight: 600;
+}
+
+/* Credit in Auth pages */
+.auth-credit {
+  text-align: center;
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-glass);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  letter-spacing: 1px;
+}
+
+.auth-credit .credit-name {
+  background: linear-gradient(135deg, #f97316, var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+  display: inline-block;
+  margin-left: 4px;
+}
+
+/* Password Toggle Eye Button */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password-input-wrapper input {
+  padding-right: 48px !important;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.password-toggle-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
