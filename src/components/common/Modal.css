@@ -1,15 +1,25 @@
+/* ═══════════════════════════════════════════
+   MODAL — macOS-style floating dialog
+   ═══════════════════════════════════════════ */
 .modal-overlay {
   position: fixed;
   inset: 0;
   background: var(--color-bg-overlay);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: var(--z-modal-backdrop);
   padding: var(--space-4);
-  animation: fadeIn var(--transition-fast) ease;
+  animation: modalOverlayIn 280ms ease both;
 }
+
+@keyframes modalOverlayIn {
+  from { opacity: 0; backdrop-filter: blur(0); }
+  to { opacity: 1; backdrop-filter: blur(12px) saturate(120%); }
+}
+
 .modal-container {
   width: 100%;
   max-width: 500px;
@@ -18,22 +28,43 @@
   backdrop-filter: var(--glass-blur-heavy);
   -webkit-backdrop-filter: var(--glass-blur-heavy);
   border: 1px solid var(--color-border-glass);
+  border-top-color: rgba(255, 255, 255, 0.60);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-3d), var(--shadow-inner-glow);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
+  animation: modalEnter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+[data-theme='dark'] .modal-container {
+  border-top-color: rgba(200, 255, 235, 0.16);
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.94);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 .modal-container::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 15%;
-  right: 15%;
+  left: 12%;
+  right: 12%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
 }
+
 .modal-header {
   display: flex;
   align-items: center;
@@ -41,19 +72,29 @@
   padding: var(--space-5) var(--space-6);
   border-bottom: 1px solid var(--color-border-glass);
 }
+
 .modal-header h3 {
   font-size: var(--text-lg);
-  font-weight: 600;
+  font-weight: 700;
 }
+
 .modal-close {
   font-size: var(--text-lg);
   color: var(--color-text-tertiary);
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
+
+.modal-close:hover {
+  color: var(--color-text-primary);
+  transform: rotate(90deg);
+}
+
 .modal-body {
   padding: var(--space-6);
   overflow-y: auto;
   flex: 1;
 }
+
 .modal-footer {
   display: flex;
   align-items: center;

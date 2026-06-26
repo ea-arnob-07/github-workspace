@@ -120,11 +120,12 @@ export default function Dashboard() {
                 <span className="btn-ghost">View Details →</span>
               </div>
             </Link>
-            <Link to="/users/ea-arnob-07" className="action-card glass-card">
+            <Link to="/users/ea-arnob-07" className="action-card glass-card personal-action-card">
               <div className="card-header-badge text-success">Personal</div>
-              <span className="action-icon" style={{ background: 'var(--color-success-muted)', overflow: 'hidden', padding: 0 }}>
-                <img src="https://github.com/ea-arnob-07.png" alt="ea-arnob-07" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
-              </span>
+              <span className="action-icon" style={{ background: 'var(--color-success-muted)' }}>👨‍💻</span>
+              <div className="personal-repo-avatar">
+                <img src="https://github.com/ea-arnob-07.png" alt="ea-arnob-07" />
+              </div>
               <h3>ea-arnob-07</h3>
               <p>My Personal Repository</p>
               <div className="action-footer">

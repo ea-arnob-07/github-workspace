@@ -409,3 +409,30 @@
   color: #fff;
   background: rgba(255, 255, 255, 0.1);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .auth-page {
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: flex-start;
+  }
+  .auth-container {
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .auth-left-panel {
+    padding: 40px 30px 20px 30px;
+  }
+  .auth-right-panel {
+    padding: 30px 30px 40px 30px;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.text-theme-green {
+  color: #00d26a;
+  font-weight: 700;
+}

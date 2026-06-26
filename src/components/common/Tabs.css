@@ -1,58 +1,74 @@
+/* ═══════════════════════════════════════════
+   TABS — Smooth glass tab bar
+   ═══════════════════════════════════════════ */
 .tabs-container {
-  margin-bottom: var(--space-6);
+  margin-bottom: 22px;
   position: relative;
 }
+
 .tabs-list {
   display: flex;
-  gap: var(--space-1);
+  gap: 8px;
   overflow-x: auto;
-  padding-bottom: 2px;
+  padding: 4px 0 6px;
   border-bottom: 1px solid var(--color-border-glass);
 }
+
 .tab-item {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-4);
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 16px;
   font-family: var(--font-primary);
-  font-size: var(--text-sm);
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--color-text-secondary);
-  background: none;
-  border: none;
+  background: transparent;
+  border: 1px solid transparent;
   border-bottom: 2px solid transparent;
+  border-radius: 14px 14px 0 0;
   cursor: pointer;
-  transition: all var(--transition-fast);
   white-space: nowrap;
   position: relative;
+  transition:
+    all var(--transition-fast),
+    transform var(--transition-3d);
 }
+
 .tab-item:hover {
   color: var(--color-text-primary);
   background: var(--color-accent-muted);
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  border-color: var(--color-border-glass);
+  transform: translateY(-1px);
 }
+
 .tab-active {
   color: var(--color-accent);
-  font-weight: 600;
+  font-weight: 800;
   border-bottom-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent-muted) 65%, transparent);
 }
+
 .tab-active::after {
   content: '';
   position: absolute;
-  bottom: -1px;
+  bottom: -7px;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end));
   border-radius: var(--radius-full);
-  box-shadow: 0 0 8px rgba(88, 166, 255, 0.3);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 35%, transparent);
 }
-.tab-icon { font-size: var(--text-base); }
+
+.tab-icon { font-size: 1rem; }
+
 .tab-count {
   font-size: var(--text-xs);
-  padding: 1px 6px;
+  padding: 2px 7px;
   background: var(--color-accent-muted);
   color: var(--color-accent);
   border-radius: var(--radius-full);
-  font-weight: 600;
+  font-weight: 800;
 }

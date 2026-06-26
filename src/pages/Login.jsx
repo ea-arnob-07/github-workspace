@@ -76,7 +76,7 @@ export default function Login() {
         <div className="auth-left-panel">
           <div className="auth-left-content">
             <h2>It’s easy to find<br/>GitHub Repository</h2>
-            <p>See how beautiful life can be when you get touched with ARNOB.</p>
+            <p>See how beautiful life can be when you’re in touch with <span className="text-theme-green">ARNOB</span>.</p>
             <div className="auth-features">
               <span><i className="feature-icon">✓</i> Easy Lifestyle</span>
               <span><i className="feature-icon">✓</i> Safe & secure</span>

@@ -1,7 +1,11 @@
+/* ═══════════════════════════════════════════
+   USER CARD — Glass profile tile
+   ═══════════════════════════════════════════ */
 .user-card {
   padding: var(--space-4);
   position: relative;
 }
+
 .user-card-link {
   display: flex;
   align-items: center;
@@ -9,35 +13,52 @@
   text-decoration: none;
   color: inherit;
 }
+
 .user-card-link:hover { text-decoration: none; }
+
 .user-card-avatar {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-full);
   object-fit: cover;
   border: 2px solid var(--color-border-glass);
-  box-shadow: 0 0 15px rgba(88, 166, 255, 0.1);
+  box-shadow: 0 0 16px rgba(22, 224, 138, 0.08);
   flex-shrink: 0;
-  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+  transition:
+    box-shadow var(--transition-3d),
+    transform var(--transition-3d),
+    border-color var(--transition-fast);
 }
+
 .user-card:hover .user-card-avatar {
-  box-shadow: 0 0 25px rgba(88, 166, 255, 0.2);
-  transform: scale(1.05);
+  box-shadow: 0 0 28px rgba(22, 224, 138, 0.18),
+              0 4px 16px rgba(0, 0, 0, 0.10);
+  transform: scale(1.08);
+  border-color: var(--color-accent-muted);
 }
+
 .user-card-info {
   flex: 1;
   min-width: 0;
 }
+
 .user-card-name {
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 2px;
 }
+
 .user-card-username {
   font-size: var(--text-sm);
   color: var(--color-text-link);
-  font-weight: 500;
+  font-weight: 600;
+  transition: color var(--transition-fast);
 }
+
+.user-card:hover .user-card-username {
+  color: var(--color-accent);
+}
+
 .user-card-bio {
   font-size: var(--text-xs);
   color: var(--color-text-tertiary);
@@ -47,6 +68,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .user-card-stats {
   display: flex;
   gap: var(--space-4);
@@ -54,6 +76,7 @@
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
 }
+
 .user-card-fav {
   position: absolute;
   top: var(--space-3);
@@ -61,8 +84,14 @@
   font-size: var(--text-lg);
   color: var(--color-text-tertiary);
   z-index: 1;
+  transition: transform var(--transition-fast), color var(--transition-fast);
 }
+
+.user-card-fav:hover {
+  transform: scale(1.18);
+}
+
 .user-card-fav.favorited {
   color: var(--color-warning);
-  text-shadow: 0 0 8px rgba(210, 153, 34, 0.5);
+  text-shadow: 0 0 10px rgba(210, 153, 34, 0.5);
 }
