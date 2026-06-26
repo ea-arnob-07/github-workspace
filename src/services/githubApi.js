@@ -20,7 +20,7 @@ async function githubFetch(endpoint, options = {}) {
   };
 
   const token = import.meta.env.VITE_GITHUB_TOKEN;
-  if (token) {
+  if (token && token !== 'paste_your_token_here') {
     headers.Authorization = `token ${token}`;
   }
 
@@ -241,3 +241,49 @@ export async function getRepoCommits(owner, repo, page = 1, perPage = 20) {
     `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/commits?${params}`
   );
 }
+
+// =============================================
+// REPOSITORY CONTENTS ENDPOINTS
+// =============================================
+
+/**
+ * Get the contents of a directory in a repository.
+ * @param {string} owner
+ * @param {string} repo
+ * @param {string} path - Directory path (empty string for root)
+ * @returns {Promise<Array>} Array of content objects (files and directories)
+ */
+export async function getRepoContents(owner, repo, path = '') {
+  const encodedPath = path.split('/').map(encodeURIComponent).join('/');
+  return githubFetch(
+    `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodedPath}`
+  );
+}
+
+/**
+ * Get the content of a single file in a repository.
+ * @param {string} owner
+ * @param {string} repo
+ * @param {string} path - File path
+ * @returns {Promise<Object>} File content object with Base64-encoded content
+ */
+export async function getFileContent(owner, repo, path) {
+  const encodedPath = path.split('/').map(encodeURIComponent).join('/');
+  return githubFetch(
+    `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodedPath}`
+  );
+}
+
+/**
+ * Get the language breakdown of a repository.
+ * Returns an object where keys are language names and values are bytes of code.
+ * @param {string} owner
+ * @param {string} repo
+ * @returns {Promise<Object>} e.g. { "JavaScript": 50000, "CSS": 20000 }
+ */
+export async function getRepoLanguages(owner, repo) {
+  return githubFetch(
+    `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/languages`
+  );
+}
+

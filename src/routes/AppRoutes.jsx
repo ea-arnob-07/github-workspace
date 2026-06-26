@@ -13,6 +13,9 @@ import Favorites from '../pages/Favorites';
 import Collections from '../pages/Collections';
 import Notifications from '../pages/Notifications';
 import Settings from '../pages/Settings';
+import MyProfile from '../pages/MyProfile';
+import CreateRepository from '../pages/CreateRepository';
+import MyRepositoryManager from '../pages/MyRepositoryManager';
 
 /**
  * AppRoutes — Central route definitions.
@@ -42,6 +45,11 @@ export function AppRoutes() {
         <Route path="/collections" element={<Collections />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/settings" element={<Settings />} />
+        
+        {/* GitHub Integrated Routes */}
+        <Route path="/my-profile" element={<MyProfile />} />
+        <Route path="/my-profile/create-repository" element={<CreateRepository />} />
+        <Route path="/my-profile/repos/:owner/:repo" element={<MyRepositoryManager />} />
       </Route>
 
       {/* Default redirect */}

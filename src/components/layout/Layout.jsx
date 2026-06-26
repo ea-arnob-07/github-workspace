@@ -28,6 +28,9 @@ export function Layout() {
       <Sidebar isOpen={sidebarOpen} onClose={handleCloseSidebar} />
       <main className="main-content">
         <Outlet />
+        <footer className="mobile-footer">
+          Developed by ARNOB
+        </footer>
       </main>
     </div>
   );

@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { SettingsProvider } from './context/SettingsContext';
 import { AppRoutes } from './routes/AppRoutes';
@@ -13,10 +13,10 @@ function App() {
   return (
     <SettingsProvider>
       <AuthProvider>
-        <BrowserRouter>
+        <HashRouter>
           <AnimatedBackground />
           <AppRoutes />
-        </BrowserRouter>
+        </HashRouter>
       </AuthProvider>
     </SettingsProvider>
   );

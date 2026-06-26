@@ -1,0 +1,122 @@
+.my-profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .my-profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.custom-card {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(79, 172, 254, 0.4) !important;
+  border-radius: 16px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(79, 172, 254, 0.8), rgba(0, 242, 254, 0.8));
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.8);
+}
+
+.custom-card:nth-child(2)::before {
+  background: linear-gradient(90deg, rgba(161, 140, 209, 0.8), rgba(251, 194, 235, 0.8));
+  box-shadow: 0 0 15px rgba(161, 140, 209, 0.8);
+}
+
+.card-title {
+  font-weight: 700;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.custom-input {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 12px 20px !important;
+  border-radius: 12px !important;
+}
+
+.custom-input:focus {
+  border-color: rgba(79, 172, 254, 0.5) !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+
+.pill-btn {
+  border-radius: 50px !important;
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  padding: 10px 24px !important;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.pill-btn:hover {
+  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+.repo-results {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Custom scrollbar for repo results */
+.repo-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.repo-results::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+
+.repo-results::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.repo-results::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.repo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+}
+
+/* Login button overrides for bottom */
+.github-login-btn {
+  border-radius: 50px !important;
+  padding: 12px 32px !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  font-weight: 600 !important;
+}
+
+.github-login-btn:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}

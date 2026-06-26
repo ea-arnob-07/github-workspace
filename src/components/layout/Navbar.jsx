@@ -91,9 +91,13 @@ export default function Navbar({ onToggleSidebar, notificationCount = 0 }) {
             className="user-profile-btn"
             onClick={() => setShowUserMenu(!showUserMenu)}
           >
-            <div className="avatar-circle">
-              {user?.username?.charAt(0).toUpperCase() || 'U'}
-            </div>
+            {user?.avatar && user.isGithub ? (
+              <img src={user.avatar} alt="Avatar" className="avatar-circle" style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
+            ) : (
+              <div className="avatar-circle">
+                {user?.username?.charAt(0).toUpperCase() || 'U'}
+              </div>
+            )}
             <span className="username-text hidden-mobile">{user?.username}</span>
             <span className="caret hidden-mobile">▾</span>
           </button>

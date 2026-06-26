@@ -1,0 +1,58 @@
+.create-repo-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.back-link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--color-accent);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border-glass);
+  color: var(--color-text-primary);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+[data-theme='light'] .glass-input {
+  background: rgba(0, 0, 0, 0.03);
+  color: #000;
+}
+
+.glass-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(34, 241, 150, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.glass-divider {
+  border: 0;
+  height: 1px;
+  background: var(--color-border-glass);
+}
+
+.radio-container,
+.checkbox-container {
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-container input[type="radio"],
+.checkbox-container input[type="checkbox"] {
+  accent-color: var(--color-accent);
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  cursor: pointer;
+}

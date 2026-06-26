@@ -6,6 +6,8 @@
   background: var(--bg-scene);
   transition: background 320ms ease;
   perspective: 1200px;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* ═══════════════════════════════════════════
@@ -77,6 +79,7 @@
   pointer-events: none;
   opacity: 0.38;
   mix-blend-mode: screen;
+  will-change: transform;
 }
 
 .shape-1 {

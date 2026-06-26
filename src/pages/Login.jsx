@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { validateLogin } from '../utils/validators';
+import GitHubLoginButton from '../components/github/GitHubLoginButton';
 import './Auth.css';
 
 /**
@@ -98,6 +99,13 @@ export default function Login() {
               <span>⚠️</span> {serverError}
             </div>
           )}
+          
+          {/* GitHub Auth Section */}
+          <GitHubLoginButton />
+          
+          <div style={{ textAlign: 'center', margin: '16px 0', color: 'var(--color-text-tertiary)', fontSize: '0.85rem' }}>
+            OR CONTINUE WITH EMAIL
+          </div>
 
           <form onSubmit={handleSubmit} className="auth-form" noValidate>
             <div className="form-group">
