@@ -250,9 +250,11 @@
     right: 0;
     top: auto;
     bottom: 14px;
+    height: auto;
     transform: none;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .sidebar-nav-pill {
