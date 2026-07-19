@@ -257,6 +257,7 @@
 
   .sidebar-nav-pill {
     width: auto;
+    height: auto;
     min-height: 0;
     max-height: none;
     flex-direction: row;
@@ -274,6 +275,9 @@
 
   .pill-nav-link::after,
   .nav-label,
+  .sidebar-brand-top,
+  .sidebar-nav-separator,
+  .sidebar-spacer,
   .sidebar-credit {
     display: none;
   }
