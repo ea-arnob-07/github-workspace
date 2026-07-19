@@ -3,6 +3,37 @@
    ═══════════════════════════════════════════ */
 .search-controls {
   margin-bottom: var(--space-6);
+  padding: 24px;
+}
+
+.search-hero-card {
+  background: var(--color-gradient-accent) !important;
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+.search-hero-card label {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.search-hero-card select,
+.search-hero-card input[type="number"] {
+  background: #ffffff;
+  color: #111827;
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-hero-card input[type="number"]::placeholder {
+  color: #6b7280;
+}
+
+.search-hero-card select option {
+  background: #ffffff;
+  color: #111827;
 }
 
 .search-input-wrapper {
@@ -15,7 +46,7 @@
   position: absolute;
   left: var(--space-4);
   font-size: var(--text-lg);
-  opacity: 0.5;
+  color: #6b7280;
   pointer-events: none;
   transition: opacity var(--transition-fast);
 }
@@ -27,15 +58,20 @@
 .search-main-input {
   padding-left: calc(var(--space-4) + 28px);
   padding-right: calc(var(--space-4) + 36px);
-  height: 50px;
+  height: 42px;
   font-size: var(--text-base);
-  background: var(--color-glass-bg);
-  border-color: var(--color-border-glass);
-  border-radius: var(--radius-lg);
+  background: #ffffff;
+  color: #111827;
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition:
-    border-color var(--transition-fast),
     box-shadow var(--transition-3d),
-    background var(--transition-fast);
+    transform var(--transition-fast);
+}
+
+.search-main-input::placeholder {
+  color: #6b7280;
 }
 
 .search-main-input:focus {
@@ -47,12 +83,12 @@
 .search-clear {
   position: absolute;
   right: var(--space-2);
-  color: var(--color-text-tertiary);
+  color: #6b7280;
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .search-clear:hover {
-  color: var(--color-text-primary);
+  color: #111827;
   transform: scale(1.1);
 }
 
@@ -77,12 +113,7 @@
   color: var(--color-text-secondary);
 }
 
-.filter-group select,
-.filter-group input {
-  background: var(--color-glass-bg);
-  border-color: var(--color-border-glass);
-  backdrop-filter: blur(10px);
-}
+
 
 .results-count {
   color: var(--color-text-tertiary);

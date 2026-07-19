@@ -37,7 +37,7 @@ export default function Modal({ isOpen, onClose, title, children, footer }) {
         <div className="modal-header">
           <h3>{title}</h3>
           <button className="btn-ghost btn-icon modal-close" onClick={onClose}>
-            ✕
+            
           </button>
         </div>
 

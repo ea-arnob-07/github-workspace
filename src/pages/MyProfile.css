@@ -11,13 +11,11 @@
 }
 
 .custom-card {
-  background: rgba(0, 0, 0, 0.25) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  border-top: 1px solid rgba(79, 172, 254, 0.4) !important;
-  border-radius: 16px !important;
   position: relative;
   overflow: hidden;
+  background: var(--color-gradient-accent) !important;
+  color: #ffffff !important;
+  border: none !important;
 }
 
 .custom-card::before {
@@ -43,15 +41,22 @@
 }
 
 .custom-input {
-  background: rgba(0, 0, 0, 0.3) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  padding: 12px 20px !important;
-  border-radius: 12px !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  font-size: 0.95rem !important;
+  height: auto !important;
+}
+
+.custom-input::placeholder {
+  color: rgba(0, 0, 0, 0.5) !important;
 }
 
 .custom-input:focus {
   border-color: rgba(79, 172, 254, 0.5) !important;
-  background: rgba(0, 0, 0, 0.4) !important;
+  background: #ffffff !important;
 }
 
 .pill-btn {

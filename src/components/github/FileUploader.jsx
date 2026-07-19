@@ -98,7 +98,7 @@ export default function FileUploader({ owner, repo, onSuccess }) {
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
       >
-        <div className="drop-icon">📁</div>
+        <div className="drop-icon"></div>
         <h4>Drag & drop files here</h4>
         <p className="text-secondary">or</p>
         <div className="upload-actions">

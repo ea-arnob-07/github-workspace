@@ -12,6 +12,7 @@ import LoadingSpinner from '../components/common/LoadingSpinner';
 import ErrorMessage from '../components/common/ErrorMessage';
 import FileTree from '../components/repositories/FileTree';
 import CodePreview from '../components/repositories/CodePreview';
+import { ClipboardList, Code, Users, CircleDot, GitBranch, GitCommit, Star, GitFork, Eye, Globe, ExternalLink, Download } from 'lucide-react';
 import './RepositoryDetails.css';
 
 /**
@@ -177,12 +178,12 @@ export default function RepositoryDetails() {
   const zipUrl = `https://github.com/${owner}/${repoName}/archive/refs/heads/${defaultBranch}.zip`;
 
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: '📋' },
-    { id: 'code', label: 'Code', icon: '💻' },
-    { id: 'contributors', label: 'Contributors', icon: '👥' },
-    { id: 'issues', label: 'Issues', icon: '🔴', count: repo.open_issues_count },
-    { id: 'branches', label: 'Branches', icon: '🌿' },
-    { id: 'commits', label: 'Commits', icon: '📝' },
+    { id: 'overview', label: 'Overview', icon: <ClipboardList size={16} /> },
+    { id: 'code', label: 'Code', icon: <Code size={16} /> },
+    { id: 'contributors', label: 'Contributors', icon: <Users size={16} /> },
+    { id: 'issues', label: 'Issues', icon: <CircleDot size={16} />, count: repo.open_issues_count },
+    { id: 'branches', label: 'Branches', icon: <GitBranch size={16} /> },
+    { id: 'commits', label: 'Commits', icon: <GitCommit size={16} /> },
   ];
 
   return (
@@ -191,7 +192,13 @@ export default function RepositoryDetails() {
       <div className="repo-header glass-card animate-fade-in-up">
         <div className="repo-header-top">
           <div className="repo-header-title">
-            <span className="repo-icon-lg">📦</span>
+            <span className="repo-icon-lg" style={{ display: 'flex' }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 3h18v18H3z" rx="2" />
+                <path d="M3 9h18" />
+                <path d="M9 21V9" />
+              </svg>
+            </span>
             <div>
               <h1>
                 <Link to={`/users/${owner}`} className="repo-owner-link">{owner}</Link>
@@ -209,8 +216,9 @@ export default function RepositoryDetails() {
                 rel="noopener noreferrer"
                 className="btn btn-primary"
                 title="View deployed website"
+                style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
               >
-                🌐 Live Preview
+                <Globe size={18} /> Live Preview
               </a>
             )}
             <a
@@ -219,8 +227,9 @@ export default function RepositoryDetails() {
               rel="noopener noreferrer"
               className="btn btn-primary"
               title="View GitHub Pages Webpage"
+              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
             >
-              🌐 Webpage
+              <Globe size={18} /> Webpage
             </a>
             <a
               href={repo.html_url}
@@ -228,38 +237,41 @@ export default function RepositoryDetails() {
               rel="noopener noreferrer"
               className="btn btn-secondary"
               title="Open on GitHub"
+              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
             >
-              🔗 Open on GitHub
+              <ExternalLink size={18} /> Open on GitHub
             </a>
             <a
               href={zipUrl}
               download
               className="btn btn-secondary"
               title="Download source as ZIP"
+              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
             >
-              📥 Download ZIP
+              <Download size={18} /> Download ZIP
             </a>
             <button 
               className={`btn ${isFavorite ? 'btn-primary' : 'btn-secondary'}`} 
               onClick={toggleFavorite}
+              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
             >
-              {isFavorite ? '⭐ Favorited' : '☆ Favorite'}
+              <Star size={18} style={{ fill: isFavorite ? 'currentColor' : 'none' }} /> {isFavorite ? 'Favorited' : 'Favorite'}
             </button>
           </div>
         </div>
 
         <div className="repo-stats-bar">
           <div className="repo-stat-item">
-            <span>⭐</span> <strong>{formatNumber(repo.stargazers_count)}</strong> Stars
+            <span style={{ display: 'flex', alignItems: 'center' }}><Star size={16} /></span> <strong>{formatNumber(repo.stargazers_count)}</strong> Stars
           </div>
           <div className="repo-stat-item">
-            <span>🔀</span> <strong>{formatNumber(repo.forks_count)}</strong> Forks
+            <span style={{ display: 'flex', alignItems: 'center' }}><GitFork size={16} /></span> <strong>{formatNumber(repo.forks_count)}</strong> Forks
           </div>
           <div className="repo-stat-item">
-            <span>👁️</span> <strong>{formatNumber(repo.watchers_count)}</strong> Watchers
+            <span style={{ display: 'flex', alignItems: 'center' }}><Eye size={16} /></span> <strong>{formatNumber(repo.watchers_count)}</strong> Watchers
           </div>
           <div className="repo-stat-item">
-            <span>🔴</span> <strong>{formatNumber(repo.open_issues_count)}</strong> Issues
+            <span style={{ display: 'flex', alignItems: 'center' }}><CircleDot size={16} /></span> <strong>{formatNumber(repo.open_issues_count)}</strong> Issues
           </div>
           {repo.language && (
             <div className="repo-stat-item">
@@ -288,7 +300,7 @@ export default function RepositoryDetails() {
         {!tabLoading && activeTab === 'overview' && (
           <>
             <div className="card animate-fade-in">
-              <h3 className="mb-4">📋 Repository Info</h3>
+              <h3 className="mb-4" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><ClipboardList size={20} /> Repository Info</h3>
               <div className="overview-grid">
                 <div className="overview-item">
                   <span className="overview-label">Created</span>
@@ -332,7 +344,7 @@ export default function RepositoryDetails() {
 
               return (
                 <div className="card animate-fade-in">
-                  <h3 className="mb-4">🎨 Languages</h3>
+                  <h3 className="mb-4"> Languages</h3>
                   <div className="lang-bar">
                     {langEntries.map((lang) => (
                       <div
@@ -407,7 +419,7 @@ export default function RepositoryDetails() {
           <div className="stagger-children">
             {(tabData.issues || []).length === 0 ? (
               <div className="empty-state card">
-                <div className="empty-state-icon">🎉</div>
+                <div className="empty-state-icon"></div>
                 <h3>No open issues</h3>
               </div>
             ) : (
@@ -415,7 +427,7 @@ export default function RepositoryDetails() {
                 <div key={issue.id} className="issue-item card">
                   <div className="issue-header">
                     <span className={`issue-state ${issue.pull_request ? 'issue-pr' : ''}`}>
-                      {issue.pull_request ? '🔀' : '🔴'}
+                      {issue.pull_request ? <GitFork size={16} style={{ color: 'var(--color-purple)' }} /> : <CircleDot size={16} style={{ color: 'var(--color-danger)' }} />}
                     </span>
                     <a href={issue.html_url} target="_blank" rel="noreferrer" className="issue-title">
                       {issue.title}
@@ -446,7 +458,7 @@ export default function RepositoryDetails() {
           <div className="stagger-children">
             {(tabData.branches || []).map((b) => (
               <div key={b.name} className="branch-item card">
-                <span className="branch-icon">🌿</span>
+                <span className="branch-icon"><GitBranch size={16} /></span>
                 <span className="branch-name">{b.name}</span>
                 {b.protected && <span className="badge badge-warning">protected</span>}
               </div>

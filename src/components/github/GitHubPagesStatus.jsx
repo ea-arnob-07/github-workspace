@@ -141,7 +141,7 @@ export default function GitHubPagesStatus({ owner, repo }) {
       ) : (
         <div className="published-state">
           <div className="success-icon text-center mb-3">
-            <span style={{ fontSize: '3rem' }}>✅</span>
+            <span style={{ fontSize: '3rem' }}></span>
           </div>
           <h4 className="text-center mb-3">Your site is live!</h4>
           

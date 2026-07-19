@@ -21,8 +21,8 @@ export default function UserCard({ user, onFavorite, isFavorited }) {
           {user.bio && <p className="user-card-bio">{user.bio}</p>}
           {(user.followers !== undefined) && (
             <div className="user-card-stats">
-              <span>👥 {user.followers} followers</span>
-              <span>📦 {user.public_repos} repos</span>
+              <span> {user.followers} followers</span>
+              <span> {user.public_repos} repos</span>
             </div>
           )}
         </div>
@@ -33,7 +33,7 @@ export default function UserCard({ user, onFavorite, isFavorited }) {
           onClick={(e) => { e.stopPropagation(); onFavorite(user); }}
           title={isFavorited ? 'Remove from favorites' : 'Add to favorites'}
         >
-          {isFavorited ? '★' : '☆'}
+          {isFavorited ? '' : ''}
         </button>
       )}
     </div>

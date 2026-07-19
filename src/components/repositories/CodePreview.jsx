@@ -62,7 +62,7 @@ export default function CodePreview({ file, loading, error }) {
     return (
       <div className="code-preview">
         <div className="code-preview-placeholder">
-          <span className="code-preview-placeholder-icon">⚠️</span>
+          <span className="code-preview-placeholder-icon"></span>
           <h4>Failed to load file</h4>
           <p>{error}</p>
         </div>
@@ -74,7 +74,7 @@ export default function CodePreview({ file, loading, error }) {
     return (
       <div className="code-preview">
         <div className="code-preview-placeholder">
-          <span className="code-preview-placeholder-icon">📂</span>
+          <span className="code-preview-placeholder-icon"></span>
           <h4>Select a file to preview</h4>
           <p>Click any file in the tree to view its contents</p>
         </div>
@@ -87,7 +87,7 @@ export default function CodePreview({ file, loading, error }) {
     return (
       <div className="code-preview">
         <div className="code-preview-header">
-          <span className="code-preview-filename">📎 {file.name}</span>
+          <span className="code-preview-filename"> {file.name}</span>
           {file.html_url && (
             <a
               href={file.html_url}
@@ -95,12 +95,12 @@ export default function CodePreview({ file, loading, error }) {
               rel="noopener noreferrer"
               className="btn btn-secondary code-preview-btn"
             >
-              🔗 Open File on GitHub
+               Open File on GitHub
             </a>
           )}
         </div>
         <div className="code-preview-placeholder">
-          <span className="code-preview-placeholder-icon">🚫</span>
+          <span className="code-preview-placeholder-icon"></span>
           <h4>Preview not available for this file type</h4>
           <p>Binary files cannot be displayed as text.</p>
           {file.html_url && (
@@ -123,7 +123,7 @@ export default function CodePreview({ file, loading, error }) {
     return (
       <div className="code-preview">
         <div className="code-preview-header">
-          <span className="code-preview-filename">📄 {file.name}</span>
+          <span className="code-preview-filename"> {file.name}</span>
           {file.html_url && (
             <a
               href={file.html_url}
@@ -131,12 +131,12 @@ export default function CodePreview({ file, loading, error }) {
               rel="noopener noreferrer"
               className="btn btn-secondary code-preview-btn"
             >
-              🔗 Open File on GitHub
+               Open File on GitHub
             </a>
           )}
         </div>
         <div className="code-preview-placeholder">
-          <span className="code-preview-placeholder-icon">📦</span>
+          <span className="code-preview-placeholder-icon"></span>
           <h4>File is too large to preview</h4>
           <p>This file exceeds the size limit for in-browser preview.</p>
           {file.html_url && (
@@ -161,10 +161,10 @@ export default function CodePreview({ file, loading, error }) {
     return (
       <div className="code-preview">
         <div className="code-preview-header">
-          <span className="code-preview-filename">📄 {file.name}</span>
+          <span className="code-preview-filename"> {file.name}</span>
         </div>
         <div className="code-preview-placeholder">
-          <span className="code-preview-placeholder-icon">⚠️</span>
+          <span className="code-preview-placeholder-icon"></span>
           <h4>Unable to decode file content</h4>
           <p>The file content could not be decoded for preview.</p>
           {file.html_url && (
@@ -206,7 +206,7 @@ export default function CodePreview({ file, loading, error }) {
     <div className="code-preview">
       {/* Header */}
       <div className="code-preview-header">
-        <span className="code-preview-filename">📄 {file.name}</span>
+        <span className="code-preview-filename"> {file.name}</span>
         <div className="code-preview-header-actions">
           <span className="code-preview-lines-count">
             {lines.length} line{lines.length !== 1 ? 's' : ''}
@@ -215,7 +215,7 @@ export default function CodePreview({ file, loading, error }) {
             className={`btn btn-secondary code-preview-btn ${copied ? 'code-preview-btn-copied' : ''}`}
             onClick={handleCopy}
           >
-            {copied ? '✅ Code copied!' : '📋 Copy Code'}
+            {copied ? ' Code copied!' : ' Copy Code'}
           </button>
           {file.html_url && (
             <a
@@ -224,7 +224,7 @@ export default function CodePreview({ file, loading, error }) {
               rel="noopener noreferrer"
               className="btn btn-secondary code-preview-btn"
             >
-              🔗 Open File on GitHub
+               Open File on GitHub
             </a>
           )}
         </div>

@@ -11,18 +11,18 @@
   min-height: 100vh;
   position: relative;
   z-index: 1;
-  padding: 88px 28px 54px 300px;
+  padding: 88px 28px 54px 270px;
 }
 
 @media (min-width: 1500px) {
   .main-content {
-    padding-left: 318px;
+    padding-left: 288px;
   }
 }
 
 @media (max-width: 1100px) {
   .main-content {
-    padding-left: 282px;
+    padding-left: 252px;
   }
 }
 

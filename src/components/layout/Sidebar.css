@@ -3,25 +3,28 @@
    ═══════════════════════════════════════════ */
 .floating-sidebar {
   position: fixed;
-  left: 22px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
   z-index: var(--z-sidebar);
 }
 
 .sidebar-nav-pill {
-  width: 244px;
-  min-height: 76vh;
-  max-height: calc(100vh - 104px);
+  width: 230px;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 16px;
-  border-radius: 26px;
+  padding: 30px 16px;
+  border-radius: 0;
   background: var(--color-glass-bg-heavy);
-  border: 1px solid var(--color-border-glass);
-  border-top-color: rgba(255, 255, 255, 0.55);
-  border-left-color: rgba(255, 255, 255, 0.40);
+  border-right: 1px solid var(--color-border-glass);
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
   backdrop-filter: var(--glass-blur-heavy);
   -webkit-backdrop-filter: var(--glass-blur-heavy);
   box-shadow: var(--shadow-3d), var(--shadow-glow);
@@ -30,17 +33,16 @@
 }
 
 [data-theme='dark'] .sidebar-nav-pill {
-  border-top-color: rgba(200, 255, 235, 0.14);
-  border-left-color: rgba(200, 255, 235, 0.10);
+  /* No extra borders needed for full height */
 }
 
 .sidebar-nav-pill::before {
   content: '';
   position: absolute;
-  inset: 1px;
+  inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: linear-gradient(145deg, rgba(255,255,255,.20), transparent 30%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .20), transparent 30%);
   opacity: .38;
 }
 
@@ -95,18 +97,18 @@
 .pill-nav-active {
   color: var(--color-text-primary);
   background:
-    linear-gradient(135deg, rgba(22, 224, 138, 0.26), rgba(22, 224, 138, 0.06)),
-    var(--color-glass-bg);
-  border-color: rgba(34, 241, 150, 0.42);
+    linear-gradient(135deg, rgba(124, 58, 237, 0.26), rgba(124, 58, 237, 0.06)),
+    var(--color-glass-bg-heavy);
+  border-color: rgba(124, 58, 237, 0.42);
   box-shadow:
-    0 0 30px rgba(22, 224, 138, 0.20),
+    0 0 30px rgba(124, 58, 237, 0.20),
     inset 0 1px 0 rgba(255, 255, 255, 0.36);
 }
 
 .pill-nav-active .pill-icon {
-  background: rgba(22, 224, 138, 0.18);
+  background: rgba(124, 58, 237, 0.18);
   color: var(--color-accent);
-  box-shadow: 0 0 12px rgba(22, 224, 138, 0.15);
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.15);
 }
 
 .pill-icon {
@@ -118,7 +120,7 @@
   font-size: 1.12rem;
   flex-shrink: 0;
   transition: background var(--transition-fast),
-              box-shadow var(--transition-fast);
+    box-shadow var(--transition-fast);
 }
 
 .nav-label {
@@ -127,28 +129,109 @@
 }
 
 /* ═══════════════════════════════════════════
+   SIDEBAR TOP BRAND
+   ═══════════════════════════════════════════ */
+.sidebar-brand-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 6px 12px 6px;
+  margin-bottom: 2px;
+}
+
+.sidebar-brand-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.35), rgba(139, 92, 246, 0.18));
+  border: 1px solid rgba(139, 92, 246, 0.30);
+  color: #a78bfa;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.18);
+}
+
+.sidebar-brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sidebar-brand-name {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.sidebar-brand-tagline {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.01em;
+  opacity: 0.7;
+}
+
+.sidebar-nav-separator {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-glass), transparent);
+  margin-bottom: 10px;
+  opacity: 0.6;
+}
+
+.sidebar-spacer {
+  flex: 1;
+}
+
+/* ═══════════════════════════════════════════
    CREDIT BADGE
    ═══════════════════════════════════════════ */
 .sidebar-credit {
-  position: relative;
-  z-index: 1;
-  margin-top: auto;
-  padding: 16px 10px;
-  border-radius: 14px;
-  border: 1px solid var(--color-border-glass);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--color-accent);
+  padding: 12px 10px 10px;
+  border-top: 1px solid var(--color-border-glass);
+  border-radius: 12px;
+  background: rgba(124, 58, 237, 0.06);
+  border: 1px solid rgba(139, 92, 246, 0.12);
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  font-size: 0.74rem;
-  font-weight: 900;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.18);
-  backdrop-filter: blur(8px);
 }
 
-[data-theme='light'] .sidebar-credit {
-  background: rgba(255, 255, 255, 0.24);
+.credit-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.credit-dot {
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #10b981;
+  animation: pulse-dot 2s infinite;
+}
+
+.credit-version {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  opacity: 0.65;
+  text-transform: uppercase;
+}
+
+.credit-author {
+  font-size: 0.74rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.01em;
 }
 
 /* ═══════════════════════════════════════════

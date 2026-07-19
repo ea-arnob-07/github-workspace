@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useSettings } from '../context/SettingsContext';
 import { validateLogin } from '../utils/validators';
 import GitHubLoginButton from '../components/github/GitHubLoginButton';
 import './Auth.css';
@@ -11,6 +12,7 @@ import './Auth.css';
  */
 export default function Login() {
   const { login, isAuthenticated } = useAuth();
+  const { setTheme } = useSettings();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -63,6 +65,7 @@ export default function Login() {
     setIsLoading(false);
 
     if (result.success) {
+      setTheme('dark');
       navigate(from, { replace: true });
     } else {
       setServerError(result.message);
@@ -77,11 +80,11 @@ export default function Login() {
         <div className="auth-left-panel">
           <div className="auth-left-content">
             <h2>It’s easy to find<br/>GitHub Repository</h2>
-            <p>See how beautiful life can be when you’re in touch with <span className="text-theme-green">ARNOB</span>.</p>
+            <p>Build, collaborate, and innovate with<br/><span className="text-theme-green">GitHub Workspace</span>.</p>
             <div className="auth-features">
-              <span><i className="feature-icon">✓</i> Easy Lifestyle</span>
-              <span><i className="feature-icon">✓</i> Safe & secure</span>
-              <span><i className="feature-icon">✓</i> No maintaining balance</span>
+              <span><i className="feature-icon"></i> Easy Lifestyle</span>
+              <span><i className="feature-icon"></i> Safe & secure</span>
+              <span><i className="feature-icon"></i> No maintaining balance</span>
             </div>
           </div>
         </div>
@@ -96,7 +99,7 @@ export default function Login() {
 
           {serverError && (
             <div className="auth-alert auth-alert-error">
-              <span>⚠️</span> {serverError}
+              <span></span> {serverError}
             </div>
           )}
           
@@ -161,7 +164,7 @@ export default function Login() {
                   <span className="btn-spinner" /> Continuing...
                 </span>
               ) : (
-                <>Continue <span style={{ marginLeft: '4px' }}>→</span></>
+                <>Continue <span style={{ marginLeft: '4px' }}></span></>
               )}
             </button>
 
@@ -172,7 +175,7 @@ export default function Login() {
           </form>
 
           <div className="auth-credit">
-            Developed by <span className="credit-name">ARNOB</span>
+            Developed by<br/><span className="credit-name">Estiuk Arafat Arnob</span>
           </div>
         </div>
 

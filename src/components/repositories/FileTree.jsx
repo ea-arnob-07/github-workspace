@@ -99,7 +99,7 @@ export default function FileTree({
               onClick={() => onBreadcrumbClick(crumb.path)}
               disabled={idx === breadcrumbs.length - 1}
             >
-              {idx === 0 ? '📦' : '📁'} {crumb.name}
+              {idx === 0 ? '' : ''} {crumb.name}
             </button>
           </span>
         ))}
@@ -121,11 +121,11 @@ export default function FileTree({
 
         {!loading && error && (
           <div className="file-tree-error">
-            <span className="file-tree-error-icon">⚠️</span>
+            <span className="file-tree-error-icon"></span>
             <p>{error}</p>
             {onRetry && (
               <button className="btn btn-secondary" onClick={onRetry}>
-                🔄 Retry
+                 Retry
               </button>
             )}
           </div>
@@ -133,7 +133,7 @@ export default function FileTree({
 
         {!loading && !error && sortedItems.length === 0 && (
           <div className="file-tree-empty">
-            <span className="file-tree-empty-icon">📭</span>
+            <span className="file-tree-empty-icon"></span>
             <p>This directory is empty</p>
           </div>
         )}
@@ -151,7 +151,7 @@ export default function FileTree({
               title={item.path}
             >
               <span className="file-tree-item-icon">
-                {isDir ? '📁' : binary ? '📎' : '📄'}
+                {isDir ? '' : binary ? '' : ''}
               </span>
               <span className="file-tree-item-name">{item.name}</span>
               {!isDir && item.size != null && (

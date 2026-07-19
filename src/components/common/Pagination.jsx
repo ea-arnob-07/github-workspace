@@ -20,7 +20,7 @@ export default function Pagination({
         onClick={() => onPageChange(currentPage - 1)}
         disabled={!hasPrevPage}
       >
-        ← Prev
+         Prev
       </button>
 
       <div className="pagination-pages">
@@ -58,7 +58,7 @@ export default function Pagination({
         onClick={() => onPageChange(currentPage + 1)}
         disabled={!hasNextPage}
       >
-        Next →
+        Next 
       </button>
     </div>
   );

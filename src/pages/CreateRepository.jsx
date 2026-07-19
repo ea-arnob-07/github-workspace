@@ -60,7 +60,7 @@ export default function CreateRepository() {
     <div className="page-container animate-fade-in">
       <div className="create-repo-wrapper">
         <Link to="/my-profile" className="back-link mb-4 d-inline-block">
-          ← Back to Profile
+           Back to Profile
         </Link>
         
         <div className="glass-card p-5">
@@ -118,7 +118,7 @@ export default function CreateRepository() {
                 />
                 <div>
                   <div className="fw-bold d-flex align-items-center gap-2">
-                    <span className="icon">🌐</span> Public
+                    <span className="icon"></span> Public
                   </div>
                   <div className="text-secondary text-sm">
                     Anyone on the internet can see this repository. You choose who can commit.
@@ -136,7 +136,7 @@ export default function CreateRepository() {
                 />
                 <div>
                   <div className="fw-bold d-flex align-items-center gap-2">
-                    <span className="icon">🔒</span> Private
+                    <span className="icon"></span> Private
                   </div>
                   <div className="text-secondary text-sm">
                     You choose who can see and commit to this repository.

@@ -5,6 +5,9 @@
 .user-profile {
   padding: var(--space-8);
   margin-bottom: var(--space-6);
+  background: var(--color-gradient-accent) !important;
+  color: #ffffff;
+  border: none;
 }
 
 .profile-main {
@@ -41,11 +44,12 @@
   font-size: var(--text-3xl);
   font-weight: 900;
   margin-bottom: 2px;
+  color: #ffffff !important;
 }
 
 .profile-username {
   font-size: var(--text-lg);
-  color: var(--color-text-link);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 600;
 }
 
@@ -61,23 +65,23 @@
   gap: var(--space-4);
   margin-top: var(--space-4);
   font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .profile-meta a {
-  color: var(--color-text-link);
+  color: rgba(255, 255, 255, 0.9);
   transition: color var(--transition-fast);
 }
 
 .profile-meta a:hover {
-  color: var(--color-accent);
+  color: #ffffff;
 }
 
 .profile-stats {
   display: flex;
   gap: var(--space-8);
   padding-top: var(--space-6);
-  border-top: 1px solid var(--color-border-glass);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .user-tab-content {

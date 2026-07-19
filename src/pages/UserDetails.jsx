@@ -76,9 +76,9 @@ export default function UserDetails() {
   if (!user) return null;
 
   const tabs = [
-    { id: 'repos', label: 'Repositories', icon: '📦', count: user.public_repos },
-    { id: 'followers', label: 'Followers', icon: '👥', count: user.followers },
-    { id: 'following', label: 'Following', icon: '👤', count: user.following },
+    { id: 'repos', label: 'Repositories', icon: '', count: user.public_repos },
+    { id: 'followers', label: 'Followers', icon: '', count: user.followers },
+    { id: 'following', label: 'Following', icon: '', count: user.following },
   ];
 
   return (
@@ -92,14 +92,14 @@ export default function UserDetails() {
             <span className="profile-username">@{user.login}</span>
             {user.bio && <p className="profile-bio">{user.bio}</p>}
             <div className="profile-meta">
-              {user.company && <span>🏢 {user.company}</span>}
-              {user.location && <span>📍 {user.location}</span>}
+              {user.company && <span> {user.company}</span>}
+              {user.location && <span> {user.location}</span>}
               {user.blog && (
                 <a href={user.blog.startsWith('http') ? user.blog : `https://${user.blog}`} target="_blank" rel="noreferrer">
-                  🔗 {user.blog}
+                   {user.blog}
                 </a>
               )}
-              {user.created_at && <span>📅 Joined {formatDate(user.created_at)}</span>}
+              {user.created_at && <span> Joined {formatDate(user.created_at)}</span>}
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function UserDetails() {
           <div className="grid stagger-children">
             {repos.length === 0 ? (
               <div className="empty-state card">
-                <div className="empty-state-icon">📦</div>
+                <div className="empty-state-icon"></div>
                 <h3>No repositories</h3>
               </div>
             ) : (
@@ -148,7 +148,7 @@ export default function UserDetails() {
           <div className="grid grid-3 stagger-children">
             {followers.length === 0 ? (
               <div className="empty-state card" style={{ gridColumn: '1 / -1' }}>
-                <div className="empty-state-icon">👥</div>
+                <div className="empty-state-icon"></div>
                 <h3>No followers</h3>
               </div>
             ) : (
@@ -166,7 +166,7 @@ export default function UserDetails() {
           <div className="grid grid-3 stagger-children">
             {following.length === 0 ? (
               <div className="empty-state card" style={{ gridColumn: '1 / -1' }}>
-                <div className="empty-state-icon">👤</div>
+                <div className="empty-state-icon"></div>
                 <h3>Not following anyone</h3>
               </div>
             ) : (

@@ -21,10 +21,10 @@ export default function MyRepoCard({ repo }) {
       )}
 
       <div className="my-repo-meta">
-        <div className="meta-item" title="Stars">⭐ {repo.stargazers_count}</div>
-        <div className="meta-item" title="Forks">🔀 {repo.forks_count}</div>
-        <div className="meta-item" title="Default branch">🌿 {repo.default_branch}</div>
-        <div className="meta-item" title="Last updated">🕒 {formatRelativeTime(repo.updated_at)}</div>
+        <div className="meta-item" title="Stars"> {repo.stargazers_count}</div>
+        <div className="meta-item" title="Forks"> {repo.forks_count}</div>
+        <div className="meta-item" title="Default branch"> {repo.default_branch}</div>
+        <div className="meta-item" title="Last updated"> {formatRelativeTime(repo.updated_at)}</div>
       </div>
 
       <div className="my-repo-actions">

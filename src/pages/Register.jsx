@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useSettings } from '../context/SettingsContext';
 import { validateRegistration } from '../utils/validators';
 import './Auth.css';
 
@@ -10,6 +11,7 @@ import './Auth.css';
  */
 export default function Register() {
   const { register, isAuthenticated } = useAuth();
+  const { setTheme } = useSettings();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -62,6 +64,7 @@ export default function Register() {
     setIsLoading(false);
 
     if (result.success) {
+      setTheme('dark');
       navigate('/dashboard', { replace: true });
     } else {
       setServerError(result.message);
@@ -76,7 +79,7 @@ export default function Register() {
       >
         {serverError && (
           <div className="auth-alert auth-alert-error">
-            <span>⚠️</span> {serverError}
+            <span></span> {serverError}
           </div>
         )}
 

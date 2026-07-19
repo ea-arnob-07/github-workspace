@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { formatNumber } from '../../utils/helpers';
 import { getLanguageColor } from '../../utils/helpers';
+import { Star, GitFork, CircleDot, FolderGit2, Heart } from 'lucide-react';
 import './RepoCard.css';
 
 /**
@@ -14,7 +15,7 @@ export default function RepoCard({ repo, onFavorite, isFavorited }) {
         className="repo-card-link"
       >
         <div className="repo-card-header">
-          <span className="repo-card-icon">📦</span>
+          <span className="repo-card-icon"><FolderGit2 size={18} /></span>
           <h4 className="repo-card-name">
             <span className="repo-owner">{repo.owner?.login || repo.owner}/</span>
             {repo.name}
@@ -35,10 +36,10 @@ export default function RepoCard({ repo, onFavorite, isFavorited }) {
               {repo.language}
             </span>
           )}
-          <span className="repo-stat">⭐ {formatNumber(repo.stargazers_count)}</span>
-          <span className="repo-stat">🔀 {formatNumber(repo.forks_count)}</span>
+          <span className="repo-stat" title="Stars"><Star size={14} style={{ marginRight: 4 }} /> {formatNumber(repo.stargazers_count)}</span>
+          <span className="repo-stat" title="Forks"><GitFork size={14} style={{ marginRight: 4 }} /> {formatNumber(repo.forks_count)}</span>
           {repo.open_issues_count > 0 && (
-            <span className="repo-stat">🔴 {formatNumber(repo.open_issues_count)}</span>
+            <span className="repo-stat" title="Open Issues"><CircleDot size={14} style={{ marginRight: 4 }} /> {formatNumber(repo.open_issues_count)}</span>
           )}
         </div>
       </Link>
@@ -49,7 +50,7 @@ export default function RepoCard({ repo, onFavorite, isFavorited }) {
           onClick={(e) => { e.stopPropagation(); onFavorite(repo); }}
           title={isFavorited ? 'Remove from favorites' : 'Add to favorites'}
         >
-          {isFavorited ? '★' : '☆'}
+          {isFavorited ? <Star size={18} fill="currentColor" /> : <Star size={18} />}
         </button>
       )}
     </div>

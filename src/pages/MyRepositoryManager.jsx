@@ -30,7 +30,7 @@ export default function MyRepositoryManager() {
     <div className="page-container animate-fade-in my-repo-manager">
       <div className="mb-4">
         <Link to="/my-profile" className="back-link d-inline-block mb-3">
-          ← Back to Profile
+           Back to Profile
         </Link>
         <div className="d-flex justify-content-between align-items-center flex-wrap gap-3">
           <h1>
@@ -74,7 +74,7 @@ export default function MyRepositoryManager() {
               </li>
               <li>
                 <a href={`https://github.com/${owner}/${repo}/settings`} target="_blank" rel="noopener noreferrer">
-                  GitHub Repository Settings ↗
+                  GitHub Repository Settings 
                 </a>
               </li>
             </ul>

@@ -51,8 +51,8 @@ export default function Search() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const tabs = useMemo(() => [
-    { id: 'users', label: 'Users', icon: '👤' },
-    { id: 'repositories', label: 'Repositories', icon: '📦' },
+    { id: 'users', label: 'Users', icon: '' },
+    { id: 'repositories', label: 'Repositories', icon: '' },
   ], []);
 
   // Sync search state to URL
@@ -141,7 +141,7 @@ export default function Search() {
   return (
     <div className="page-container">
       <div className="page-header">
-        <h1>🔍 Search</h1>
+        <h1> Search</h1>
         <p>Find GitHub users and repositories</p>
       </div>
 
@@ -149,9 +149,9 @@ export default function Search() {
       <Tabs tabs={tabs} activeTab={searchType} onChange={handleTabChange} />
 
       {/* Search Input & Filters */}
-      <div className="search-controls card">
+      <div className="search-controls card search-hero-card">
         <div className="search-input-wrapper">
-          <span className="search-input-icon">🔍</span>
+          <span className="search-input-icon"></span>
           <input
             type="text"
             className="search-main-input"
@@ -169,7 +169,7 @@ export default function Search() {
           />
           {query && (
             <button className="search-clear btn-ghost btn-icon" onClick={() => setQuery('')}>
-              ✕
+              
             </button>
           )}
         </div>
@@ -211,7 +211,7 @@ export default function Search() {
 
         {!loading && !error && results && results.length === 0 && (
           <div className="empty-state card">
-            <div className="empty-state-icon">🔍</div>
+            <div className="empty-state-icon"></div>
             <h3>No results found</h3>
             <p>Try a different search term or adjust your filters.</p>
           </div>
@@ -245,7 +245,7 @@ export default function Search() {
 
         {!loading && !error && !results && (
           <div className="empty-state card">
-            <div className="empty-state-icon">✨</div>
+            <div className="empty-state-icon"></div>
             <h3>Start searching</h3>
             <p>
               {searchType === 'users'

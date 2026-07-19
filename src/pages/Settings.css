@@ -57,10 +57,11 @@
 
 .theme-option {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-5) var(--space-4);
+  gap: 10px;
+  padding: 12px 16px;
   background: var(--color-glass-bg);
   backdrop-filter: blur(14px);
   border: 2px solid var(--color-border-glass);
@@ -101,6 +102,7 @@
 
 .theme-option-icon {
   font-size: var(--text-2xl);
+  color: var(--color-text-primary);
   transition: transform var(--transition-fast);
 }
 
